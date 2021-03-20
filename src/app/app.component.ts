@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import { LiftBuilder } from './lifts/lift-builder';
 
 @Component({
@@ -8,9 +10,24 @@ import { LiftBuilder } from './lifts/lift-builder';
 })
 export class AppComponent {
   title = 'road-to-arnold-classic';
-  lift;
+  lift = new LiftBuilder('Curl').setReps(12).setWeight(135).setSets(2).build();
 
-  constructor() {
-    this.lift = new LiftBuilder('Curl').setReps(12).setWeight(135).setSets(2).build();
+
+  form = new FormGroup({});
+  model = { email: 'email@gmail.com' };
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: 'Email address',
+        placeholder: 'Enter email',
+        required: true,
+      }
+    }
+  ];
+
+  onSubmit() {
+    console.log(this.model);
   }
 }
