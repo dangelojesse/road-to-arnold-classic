@@ -13,8 +13,17 @@ jobs:
       - image: 'cimg/base:stable'
     steps: 
       - run: ng test
+  ng-e2e:
+    docker:
+      - image: 'cimg/base:stable'
+    steps: 
+      - run: ng e2e
 workflows:
-  test_my_app:
+  install-node:
+    jobs:
+      - install-node
+  run-tests:
     jobs:
       - ng-test
-      - install-node
+      - ng-e2e
+
