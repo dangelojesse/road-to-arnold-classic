@@ -8,13 +8,13 @@ jobs:
     steps:
       - checkout
       - node/install
-  run-ng-test:
+  ng-test:
     docker:
       - image: 'cimg/base:stable'
-    steps:
+    steps: 
       - run: ng test
 workflows:
-  test-app:
+  test_my_app:
     jobs:
+      - ng-test
       - install-node
-      - run-ng-test
