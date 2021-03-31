@@ -19,11 +19,14 @@ jobs:
     steps: 
       - run: ng e2e
 workflows:
-  install-node:
-    jobs:
-      - install-node
   run-tests:
     jobs:
-      - ng-test
-      - ng-e2e
+      - install-node:
+          name: install-node
+      - ng-test:
+          name: ng-test
+          requires: [install-node]
+      - ng-e2e:
+          requires: [ng-test]
+
 
