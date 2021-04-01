@@ -2,31 +2,17 @@ version: '2.1'
 orbs:
   node: circleci/node@4.2.1
 jobs:
-  install-node:
+  install-and-test:
     docker:
       - image: 'cimg/base:stable'
     steps:
       - checkout
       - node/install
-  ng-test:
-    docker:
-      - image: 'cimg/base:stable'
-    steps: 
       - run: ng test
-  ng-e2e:
-    docker:
-      - image: 'cimg/base:stable'
-    steps: 
       - run: ng e2e
 workflows:
   run-tests:
     jobs:
-      - install-node:
-          name: install-node
-      - ng-test:
-          name: ng-test
-          requires: [install-node]
-      - ng-e2e:
-          requires: [ng-test]
+      - install-and-test
 
 
