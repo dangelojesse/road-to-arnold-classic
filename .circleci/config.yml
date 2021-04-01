@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - node/install
+      - run: ls -al
       - run: npm i
       - run: ng test
       - run: ng e2e
