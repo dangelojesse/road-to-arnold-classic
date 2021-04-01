@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - node/install
-      - run: npm i -g @angular/cli
+      - run: npm i
       - run: ng test
       - run: ng e2e
 workflows:
