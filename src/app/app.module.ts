@@ -7,6 +7,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
+import { CommonModule } from '@angular/common';
+import { FormlyMaterialModule } from '@ngx-formly/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,11 @@ import { FormlyModule } from '@ngx-formly/core';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     ReactiveFormsModule,
     FormlyModule.forRoot(),
+    FormlyMaterialModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
