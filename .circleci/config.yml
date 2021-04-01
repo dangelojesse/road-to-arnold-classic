@@ -11,7 +11,7 @@ jobs:
       - run: npm i -g @angular/cli
       - run: ng test
       - run: ng e2e
- workflows:
+workflows:
   run-tests:
     jobs:
       - install-and-test
