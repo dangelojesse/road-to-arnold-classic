@@ -10,7 +10,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt install nodejs npm
       - run: export NG_CLI_ANALYTICS=ci 
-      - run: sudo npm i -g @angular/cli
+      - run: sudo npm i -g @angular/cli > /dev/null
       - run: npm i
       - run: ng test
 workflows:
