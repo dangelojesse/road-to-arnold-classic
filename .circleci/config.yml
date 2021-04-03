@@ -21,7 +21,7 @@ workflows:
       - install-and-test
       - cypress/run:
           yarn: false
-          start: ng serve
+          start: sudo npm i -g @angular/cli > /dev/null && ng serve
           wait-on: 'http://localhost:4200'
           store_artifacts: true
 
