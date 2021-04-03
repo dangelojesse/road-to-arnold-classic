@@ -19,6 +19,9 @@ workflows:
     jobs:
       - install-and-test
       - cypress/run:
-         yarn: false
+          yarn: false
+          start: npm start
+          wait-on: 'http://localhost:4200'
+          store_artifacts: true
 
 
