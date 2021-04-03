@@ -1,20 +1,20 @@
 version: '2.1'
 orbs:
-  node: circleci/node@4.2.1
+  cypress: cypress-io/cypress@1.27.0
 jobs:
   install-and-test:
     docker:
       - image: 'cimg/base:stable'
     steps:
       - checkout
-      - node/install
       - run: npm i -g @angular/cli
       - run: npm i
       - run: ng test
-      - run: ng e2e
 workflows:
   run-tests:
     jobs:
       - install-and-test
+      - cypress/run:
+         yarn: false
 
 
