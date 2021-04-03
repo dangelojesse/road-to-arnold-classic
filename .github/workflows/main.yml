@@ -10,7 +10,9 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 12
+          node-version: 'LTS'
+      - run: export NG_CLI_ANALYTICS=ci
+      - run: npm i -g @angular/cli
       - run: npm run test
 #       - uses: w9jds/firebase-action@master
 #         with:
